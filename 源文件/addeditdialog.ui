@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddEditDialog</class>
+ <widget class="QDialog" name="AddEditDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>440</width>
+    <height>520</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>员工信息</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>6</number>
+   </property>
+   <property name="leftMargin">
+    <number>8</number>
+   </property>
+   <property name="topMargin">
+    <number>8</number>
+   </property>
+   <property name="rightMargin">
+    <number>8</number>
+   </property>
+   <property name="bottomMargin">
+    <number>8</number>
+   </property>
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <layout class="QVBoxLayout" name="scrollLayout">
+       <property name="spacing">
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QGroupBox" name="groupCommon">
+         <property name="title">
+          <string>基本信息</string>
+         </property>
+         <layout class="QFormLayout" name="formLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="labelId">
+            <property name="text">
+             <string>工号：</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="lineId"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="labelName">
+            <property name="text">
+             <string>姓名：</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="lineName"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="labelGender">
+            <property name="text">
+             <string>性别：</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <layout class="QHBoxLayout" name="horizontalLayoutGender">
+            <item>
+             <widget class="QRadioButton" name="radioMale">
+              <property name="text">
+               <string>男</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="radioFemale">
+              <property name="text">
+               <string>女</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="labelAge">
+            <property name="text">
+             <string>年龄：</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QSpinBox" name="spinAge"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="labelType">
+            <property name="text">
+             <string>岗位类型：</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QComboBox" name="comboType"/>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="labelHire">
+            <property name="text">
+             <string>入职日期：</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QDateEdit" name="dateHire"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupRelationship">
+         <property name="title">
+          <string>组织关系（领导 / 下属）</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayoutRelationship">
+          <item>
+           <widget class="QStackedWidget" name="stackedRelationship">
+            <widget class="QWidget" name="pageRelEngineer">
+             <layout class="QVBoxLayout" name="verticalLayoutRelEngineer">
+              <item>
+               <widget class="QLabel" name="labelRelationHintEngineer">
+                <property name="text">
+                 <string>工程师请选择直属领导，保存后自动建立上下级关系。</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QFormLayout" name="formLayoutLeaderSelect">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="labelLeader">
+                  <property name="text">
+                   <string>直属领导：</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QComboBox" name="comboLeader"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="pageRelLeader">
+             <layout class="QVBoxLayout" name="verticalLayoutRelLeader">
+              <item>
+               <widget class="QLabel" name="labelRelationHintLeader">
+                <property name="text">
+                 <string>领导的下属来自「工程师」录入时选择的直属领导，此处只读显示。</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="labelSubordinateCount">
+                <property name="text">
+                 <string>当前下属：0 人</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QListWidget" name="listSubordinates">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>72</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="pageRelChief">
+             <layout class="QVBoxLayout" name="verticalLayoutRelChief">
+              <item>
+               <widget class="QLabel" name="labelRelationHintChief">
+                <property name="text">
+                 <string>主任工程师不参与领导-下属层级关联。</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupTypeFields">
+         <property name="title">
+          <string>岗位专属信息</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayoutType">
+          <item>
+           <widget class="QStackedWidget" name="stackedTypeFields">
+            <widget class="QWidget" name="pageEngineer">
+             <layout class="QFormLayout" name="formLayoutEngineer">
+              <item row="0" column="0">
+               <widget class="QLabel" name="labelTitle">
+                <property name="text">
+                 <string>职称：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineTitle">
+                <property name="placeholderText">
+                 <string>如：高级工程师</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="labelProjects">
+                <property name="text">
+                 <string>参与项目：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineProjects">
+                <property name="placeholderText">
+                 <string>逗号分隔，如：智慧园区, ERP</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="labelProjectCountHint">
+                <property name="text">
+                 <string>项目数量：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLabel" name="labelProjectCount">
+                <property name="text">
+                 <string>0 个（自动统计）</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="pageLeader">
+             <layout class="QFormLayout" name="formLayoutLeader">
+              <item row="0" column="0">
+               <widget class="QLabel" name="labelDepartment">
+                <property name="text">
+                 <string>所属部门：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineDepartment"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="labelLevel">
+                <property name="text">
+                 <string>行政级别：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="comboLevel"/>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="pageChief">
+             <layout class="QFormLayout" name="formLayoutChief">
+              <item row="0" column="0">
+               <widget class="QLabel" name="labelTechDirection">
+                <property name="text">
+                 <string>技术方向：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineTechDirection"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="labelLeadProjectCount">
+                <property name="text">
+                 <string>负责项目数：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QSpinBox" name="spinLeadProjectCount"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="labelTechAllowance">
+                <property name="text">
+                 <string>技术津贴：</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QDoubleSpinBox" name="spinTechAllowance"/>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupPhoto">
+         <property name="title">
+          <string>证件照（可选）</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayoutPhotoRow">
+          <item>
+           <widget class="QLabel" name="labelPhotoPreview">
+            <property name="minimumSize">
+             <size>
+              <width>72</width>
+              <height>88</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>72</width>
+              <height>88</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>无照片</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayoutPhotoBtns">
+            <item>
+             <widget class="QPushButton" name="btnSelectPhoto">
+              <property name="text">
+               <string>选择照片</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnClearPhoto">
+              <property name="text">
+               <string>清除</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayoutSalary">
+         <item>
+          <widget class="QPushButton" name="btnCalcSalary">
+           <property name="text">
+            <string>计算薪资</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineSalary">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+           <property name="placeholderText">
+            <string>自动计算</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

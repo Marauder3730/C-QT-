@@ -1,0 +1,48 @@
+[
+  {
+    "type": "领导",
+    "id": "L001",
+    "name": "李四",
+    "gender": "女",
+    "age": 35,
+    "hireDate": "2018-07-01",
+    "department": "研发部",
+    "level": "经理",
+    "subordinateCount": 2
+  },
+  {
+    "type": "工程师",
+    "id": "E001",
+    "name": "张三",
+    "gender": "男",
+    "age": 28,
+    "hireDate": "2022-03-15",
+    "title": "高级工程师",
+    "leaderId": "L001",
+    "projects": ["智慧园区平台", "ERP升级", "数据中台"],
+    "projectCount": 3
+  },
+  {
+    "type": "工程师",
+    "id": "E002",
+    "name": "赵六",
+    "gender": "男",
+    "age": 26,
+    "hireDate": "2023-06-01",
+    "title": "初级工程师",
+    "leaderId": "L001",
+    "projects": ["移动端App", "ERP升级"],
+    "projectCount": 2
+  },
+  {
+    "type": "主任工程师",
+    "id": "C001",
+    "name": "王五",
+    "gender": "男",
+    "age": 40,
+    "hireDate": "2015-01-10",
+    "techDirection": "人工智能",
+    "leadProjectCount": 3,
+    "techAllowance": 1500
+  }
+]
